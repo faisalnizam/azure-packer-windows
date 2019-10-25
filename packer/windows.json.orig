@@ -93,15 +93,11 @@
   ],
   "post-processors": [
     {
-        "type": "vagrant",
-        "compression_level": 1,
-        "override": {
-        "virtualbox": {
-            "output": "windows_10_{{.Provider}}.box",
-            "vagrantfile_template": "motf-vagrant-windows.template"
-        }
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_10_{{.Provider}}.box",
+      "vagrantfile_template": "motf-vagrant-windows.template"
     }
-   }
   ],
   "variables": {
     "iso_url": "http://download.microsoft.com/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF/10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO",
