@@ -36,18 +36,18 @@
     {
     "type": "azure-arm",
 
-    "client_id": "{{user `client_id`}}",
-    "client_secret": "{{user `client_secret`}}",
-    "tenant_id": "{{user `tenant_id`}}",
-    "subscription_id": "{{user `subscription_id`}}",
+            "client_id": "{{user `client_id`}}",
+            "client_secret": "{{user `client_secret`}}",
+            "tenant_id": "{{user `tenant_id`}}",
+            "subscription_id": "{{user `subscription_id`}}",
 
-    "managed_image_resource_group_name": "MOTF-Resource-Group",
-    "managed_image_name": "MOTF-Windows-Image",
+    "managed_image_resource_group_name": "motfImageResGroup",
+    "managed_image_name": "motfWindowsImage",
 
     "os_type": "Windows",
-    "image_publisher": "Faisal_Nizam",
-    "image_offer": "MicrosoftWindowsServer",
-    "image_sku": "WindowsServer",
+    "image_publisher": "MicrosoftWindowsServer",
+    "image_offer": "WindowsServer",
+    "image_sku": "2016-Datacenter",
 
     "communicator": "winrm",
     "winrm_use_ssl": true,
@@ -79,16 +79,13 @@
     {
     "type": "powershell",
     "inline": [
-        " # NOTE: the following *3* lines are only needed if the you have installed the Guest Agent.",
-        "  while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
-        "  while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
-        "  while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
         
         "Add-WindowsFeature Web-Server",
         "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
         "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
         "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
-    ]
+    ],
+      "only": ["azure-arm"]
    }
   ],
   "post-processors": [
@@ -100,7 +97,7 @@
             "output": "windows_10_{{.Provider}}.box",
             "vagrantfile_template": "motf-vagrant-windows.template"
         }
-    }
+    } 
    }
   ],
   "variables": {
@@ -111,6 +108,10 @@
     "headless": "true",
     "cpus": "2",
     "memory_size": "4048",
-    "disk_size": "61440" 
+    "disk_size": "61440", 
+    "client_id": "e16c1d36-216e-4d82-a0b3-69205b7b567c", 
+    "client_secret": "n24QFvU3p7iv?sLJohTjLjxHAaH.Ed/@", 
+    "tenant_id": "bf37249a-8cf0-4c18-8b6c-32fa8eac01b7", 
+    "subscription_id": "cdd59071-0e89-4e56-abb2-a08440bcdf10"
   }
 }
