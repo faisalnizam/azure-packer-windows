@@ -27,4 +27,3 @@ powershell.exe -Command "(stop-service winrm)"
 
 cmd /c sc config winrm start= disabled
 
-powershell.exe -Command "(iwr https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing | iex)"

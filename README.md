@@ -9,3 +9,18 @@ For Flash Docker
 https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/
 
 
+
+
+
+
+For Flask: 
+
+* Make Sure Flask is installed 
+pip install flask 
+
+
+* Create the Virtual Environment 
+python3 virv motf 
+
+* Create the Envirnment 
+source motf/bin/activate
