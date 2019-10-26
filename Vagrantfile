@@ -8,8 +8,11 @@ Vagrant.configure("2") do |config|
   #Overriding Default Port 
   config.winrm.username = "vagrant"
   config.winrm.password = "vagrant"
-
   config.winrm.port = 55986
+
+ # config.vm.provision "shell", privileged: "true", powershell_elevated_interactive: "true", inline: <<-SHELL
+ #         iwr https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1 -UseBasicParsing | iex
+ # SHELL
 
   config.vm.provision "ansible" do | ansible| 
     ansible.playbook = "ansible/playbook/chocolatey.yml" 
