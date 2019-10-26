@@ -109,9 +109,9 @@
     "cpus": "2",
     "memory_size": "4048",
     "disk_size": "61440", 
-    "client_id": "e16c1d36-216e-4d82-a0b3-69205b7b567c", 
-    "client_secret": "n24QFvU3p7iv?sLJohTjLjxHAaH.Ed/@", 
-    "tenant_id": "bf37249a-8cf0-4c18-8b6c-32fa8eac01b7", 
-    "subscription_id": "cdd59071-0e89-4e56-abb2-a08440bcdf10"
+    "client_id": "", 
+    "client_secret": "", 
+    "tenant_id": "", 
+    "subscription_id": ""
   }
 }
