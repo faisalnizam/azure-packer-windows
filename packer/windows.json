@@ -15,8 +15,8 @@
       "disk_size": "{{user `disk_size`}}",
       "floppy_files": [
         "{{user `autounattend`}}",
-        "../scripts/fixnetwork.ps1",
-        "../scripts/openssh.ps1"
+        "./scripts/fixnetwork.ps1",
+        "./scripts/openssh.ps1"
       ],
       "vboxmanage": [
         [
@@ -70,10 +70,10 @@
       "remote_path": "/tmp/script.bat",
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
-        "../scripts/vagrant-ssh.bat",
-        "../scripts/disable-auto-logon.bat",
-        "../scripts/enable-rdp.bat",
-        "../scripts/compact.bat"
+        "scripts/vagrant-ssh.bat",
+        "scripts/disable-auto-logon.bat",
+        "scripts/enable-rdp.bat",
+        "scripts/enable-winrm.ps1"
       ]
     }, 
     {
@@ -90,21 +90,17 @@
   ],
   "post-processors": [
     {
-        "type": "vagrant",
-        "compression_level": 1,
-        "override": {
-        "virtualbox": {
-            "output": "windows_10_{{.Provider}}.box",
-            "vagrantfile_template": "motf-vagrant-windows.template"
-        }
-    } 
+      "type": "vagrant",
+      "keep_input_artifact": false,
+      "output": "windows_10_{{.Provider}}.box",
+      "vagrantfile_template": "packer/motf-vagrant-windows.template"
    }
   ],
   "variables": {
     "iso_url": "http://download.microsoft.com/download/C/3/9/C399EEA8-135D-4207-92C9-6AAB3259F6EF/10240.16384.150709-1700.TH1_CLIENTENTERPRISEEVAL_OEMRET_X64FRE_EN-US.ISO",
     "iso_checksum_type": "sha1",
     "iso_checksum": "56ab095075be28a90bc0b510835280975c6bb2ce",
-    "autounattend": "../answer_files/10/Autounattend.xml",
+    "autounattend": "./answer_files/10/Autounattend.xml",
     "headless": "true",
     "cpus": "2",
     "memory_size": "4048",
