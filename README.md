@@ -7,12 +7,24 @@ The following will have two options
 
 *Pre-Req* 
 For Local 
-```1. Vagrant```
-```2. Virtualbox``` 
-```3. Packer``` 
-```4. Docker``` 
-```5. Ansible```
-```6. Python with Flask *Under Developmen``` 
+```
+1. Vagrant
+```
+```
+2. Virtualbox
+``` 
+```
+3. Packer
+``` 
+```
+4. Docker
+``` 
+```
+5. Ansible
+```
+```
+6. Python with Flask *Under Developme
+n``` 
 
 *For Cloud*
 `1. Azure AD Credentials`
