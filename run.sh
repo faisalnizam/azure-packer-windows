@@ -56,8 +56,29 @@ if [ $USER_OPTION == "1" ]; then
     vagrant box add --name WindowsTestBox windows_10_virtualbox.box
 
 elif [ $USER_OPTION == "2"  ]; then 
-    
-    echo "Azure Part is Under Development"
+    echo "" 
+    echo  "Enter Subscription ID" 
+    read SUBSCRIPTION_ID 
+
+    echo "" 
+    echo  "Enter Client ID" 
+    read CLIENT_ID 
+
+    echo "" 
+    echo  "Enter Client Secret" 
+    read CLIENT_SECRET 
+
+    echo "" 
+    echo  "Enter Tenant ID" 
+    read TENANT_ID 
+
+out="packer build -only=azure-arm -var 'subscription_id=${SUBSCRIPTION_ID}' -var 'client_id=${CLIENT_ID}' -var 'client_secret=${CLIENT_SECRET}' -var 'tenant_id=${TENANT_ID}' packer/windows.json"
+
+echo $out 
+
+echo ""
+echo "Running the Above Command" 
+$out 
 
 else 
     
