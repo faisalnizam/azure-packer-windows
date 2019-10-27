@@ -1,5 +1,6 @@
 *.box
 packer_cache/
 packer/packer_cache/
+*.terraform/* 
 
 
