@@ -24,3 +24,11 @@ python3 virv motf
 
 * Create the Envirnment 
 source motf/bin/activate
+
+* EXPORT the Application
+export FLASK_APP=web.py
+
+* Test your Application Locally 
+* Make sure you in the website directory 
+flask run
+
