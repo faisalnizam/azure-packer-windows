@@ -100,8 +100,7 @@
         "while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }",
         "while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }",
         
-        "((Set-Service SSHD -StartupType Automatic))",
-        "((Set-Service SSH-Agent -StartupType Automatic))",
+        "Add-WindowsCapability -Online -Name OpenSSH.Server*",
         "((Get-Service -Name ssh-agent | Set-Service -StartupType Manual))",
         "((Start-Service ssh-agent))",
         "((Set-Service -Name ssh-agent -StartupType Automatic))",

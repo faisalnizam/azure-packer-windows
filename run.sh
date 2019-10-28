@@ -78,7 +78,7 @@ echo $out
 
 echo ""
 echo "Running the Above Command" 
-$out 
+`$out` 
 
 else 
     
