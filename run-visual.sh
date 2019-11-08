@@ -36,16 +36,16 @@ respose=$?
 
 name=$(<$OUTPUT)
 
-case $respose in
-  0)
-  	sayhello ${name}
-  	;;
-  1)
-  	echo "Cancel pressed."
-  	;;
-  255)
-   echo "[ESC] key pressed."
-esac
+#case $respose in
+#  0)
+#  	sayhello ${name}
+#  	;;
+#  1)
+#  	echo "Cancel pressed."
+#  	;;
+#  255)
+#   echo "[ESC] key pressed."
+#esac
 
 
 SURETY="$(osascript -e 'display dialog "Press Local For Local Insatnce and Azure For Cloud Azure ?" buttons {"Local", "Azure"} default button "Local"')"
@@ -55,3 +55,5 @@ if [ "$SURETY" = "button returned:Local" ]; then
 else
     echo "2: Create Azure Virtual Machine."
 fi
+
+osascript -e 'set T to text returned of (display dialog "Query?" buttons {"Cancel", "OK"} default button "OK" default answer "")'
