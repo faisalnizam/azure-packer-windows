@@ -1,15 +1,6 @@
----
-- name: Gather Windows Facts 
-  hosts: all
-  gather_facts: true
-  tasks:
-    - debug: var=vars
-    - debug: var=hostvars[inventory_hostname]
-
-
-- hosts: all
+- hosts: windowshosts
   vars_files:
-    - ../../ssh_key vars/key.yml
+    - vars/upload_ssh_pub_key.yml
   tasks:
   - name: make ssh directory or check if it existss
     win_file:
