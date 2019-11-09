@@ -56,4 +56,8 @@ else
     echo "2: Create Azure Virtual Machine."
 fi
 
-osascript -e 'set T to text returned of (display dialog "Query?" buttons {"Cancel", "OK"} default button "OK" default answer "")'
+osascript -e 'set T to text returned of (display dialog "Subscription ID:" buttons {"Cancel", "OK"} default button "OK" default answer "")'
+osascript -e 'set T to text returned of (display dialog "Client ID: " buttons {"Cancel", "OK"} default button "OK" default answer "")'
+osascript -e 'set T to text returned of (display dialog "Client Secret: " buttons {"Cancel", "OK"} default button "OK" default answer "")'
+osascript -e 'set T to text returned of (display dialog "Tenant ID: " buttons {"Cancel", "OK"} default button "OK" default answer "")'
+osascript -e 'set T to text returned of (display dialog "Key To Copy: " buttons {"Cancel", "OK"} default button "OK" default answer "")'
