@@ -2,8 +2,8 @@
 
 The following will have two options 
 
-`1. To run on Local Machine (Developer)` 
-`2. To Run On Public Cloud (Azure/AWS)` 
+```1. To run on Local Machine (Developer)``` 
+```2. To Run On Public Cloud (Azure/AWS)``` 
 
 *Pre-Req* 
 For Local 
